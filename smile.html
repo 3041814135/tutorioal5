@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Smiley Face</title>
+    <style>
+        /* 设置画布的边框，使其更容易看到绘图区域 */
+        canvas {
+            border: 1px solid #000;
+            background-color: #4fd058;
+            /*背景颜色*/
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 创建一个画布元素，并设置其宽度和高度 -->
+    <canvas id="smileyCanvas" width="400" height="400"></canvas>
+
+    <script>
+        // 获取画布元素
+        const canvas = document.getElementById('smileyCanvas');
+        // 获取画布的2D渲染上下文
+        const ctx = canvas.getContext('2d');
+
+        // 绘制笑脸的圆形脸庞
+        ctx.beginPath(); // 开始一个新路径
+        ctx.arc(200, 200, 150, 0, Math.PI * 2); // 绘制一个圆，中心在(200, 200)，半径150
+        ctx.fillStyle = 'yellow'; // 设置填充颜色为黄色
+        ctx.fill(); // 填充圆形
+
+        // 绘制左眼
+        ctx.beginPath(); // 开始一个新路径
+        ctx.arc(160, 170, 12, 0, Math.PI * 2); // 绘制一个圆作为左眼，中心在(160, 170)，半径20
+        ctx.fillStyle = 'black'; // 设置填充颜色为黑色
+        ctx.fill(); // 填充圆形
+
+        // 绘制右眼
+        ctx.beginPath(); // 开始一个新路径
+        ctx.arc(240, 170, 12, 0, Math.PI * 2); // 绘制一个圆作为右眼，中心在(240, 170)，半径20
+        ctx.fillStyle = 'black'; // 设置填充颜色为黑色
+        ctx.fill(); // 填充圆形
+
+        // 绘制鼻子
+        ctx.beginPath(); // 开始一个新路径
+        ctx.moveTo(200, 180); // 移动到鼻子的起点
+        ctx.lineTo(200, 210); // 绘制一条线到鼻子的右侧
+        ctx.stroke(); // 绘制三角形的边
+
+        // 绘制嘴巴
+        ctx.beginPath(); // 开始一个新路径
+        ctx.arc(200, 240, 40, 0.5, Math.PI / 1.2); // 绘制一个半圆作为嘴巴，中心在(200, 230)，半径50,起点为x轴的0.5，长度为3.1415926/1.2.
+        ctx.stroke(); // 绘制半圆的边
+
+        // 添加文本
+        ctx.font = "24px Arial"; // 设置文本的字体和大小
+        ctx.fillText("The Canvas brought me to life!", 60, 350); // 在画布上填充文本
+    </script>
+
+</body>
+
+</html>
